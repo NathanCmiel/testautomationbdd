@@ -4,3 +4,7 @@ report/
 *.iml
 *.class
 user.json
+.classpath
+.project
+.settings/
+.vscode/
