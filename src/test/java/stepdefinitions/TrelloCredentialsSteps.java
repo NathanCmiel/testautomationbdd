@@ -80,4 +80,21 @@ public class TrelloCredentialsSteps {
         boolean isVisible = hiddenErrorTextElem.isDisplayed();
         Assert.assertFalse(isVisible);
     }
+
+    @When("^user enters credentials with \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void user_enters_credentials_with_and(String username, String password) {
+        By loc_email = By.id("user");
+        By loc_pass = By.id("password");
+        By loc_log_bttn = By.id("login");
+        WebElement emailInput = Hooks.driver().findElement(loc_email);
+        WebElement passInput = Hooks.driver().findElement(loc_pass);
+        pause(1);
+        emailInput.sendKeys(username);
+        pause(1);
+        passInput.sendKeys(password);
+        pause(1);
+        WebElement loginBttn = Hooks.driver().findElement(loc_log_bttn);
+        loginBttn.click();
+        pause(1);
+    }
 }
